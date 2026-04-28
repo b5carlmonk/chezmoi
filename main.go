@@ -13,7 +13,8 @@ import (
 
 func main() {
 	if err := cmd.Main(os.Args[1:]); err != nil {
+		// Use exit code 2 to distinguish chezmoi errors from other non-zero exits
 		fmt.Fprintf(os.Stderr, "chezmoi: error: %v\n", err)
-		os.Exit(1)
+		os.Exit(2)
 	}
 }
